@@ -1,10 +1,8 @@
-module hello (
-    A, B
-);
+module hello (A, B);
 
-input A;
-input B;
+    input A;
+    input B;
 
-assign B = A;
+    assign B = A;
     
 endmodule

@@ -1,13 +1,14 @@
-`timescale 1ps/1ns
+`timescale 1ns/1ps
 `include "hello.v"
 
-module hello_tb():
-    reg A, B;
-    hello_uut(A,B);
+module hello_tb();
+    reg A;
+    wire B;
+    hello hello_uut(A, B);
 
     initial begin
-        $dumpfile("hello_tb.vcd")
-        $dumpvars(0, hello_tb)
+        $dumpfile("hello_tb.vcd");
+        $dumpvars(0, hello_tb);
 
         A = 0;
         #20;
@@ -15,7 +16,10 @@ module hello_tb():
         A = 1;
         #20;
 
-        A=0;
+        A = 0;
         #20;
+
+        $display("Test complete");
+        $finish;
     end
 endmodule
