@@ -10,7 +10,7 @@ module mux_tb();
     wire OUT_BAR;
 
     // Instantiate the mux_2_to_1 module and connect signals
-    mux_2_to_1 mux_2_to_1_uut (
+    mux mux_uut (
         A,
         B,
         SEL,
