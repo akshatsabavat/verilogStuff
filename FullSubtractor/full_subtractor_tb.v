@@ -1,9 +1,57 @@
-module full_subtractor (a, b, bin, D, bout);
+`timescale 1ns/1ps
+`include "full_subtractor.v"
 
-    input a, b, bin;
-    output D, bout;
+module full_subtractor_tb();
 
-    assign D = a ^ b ^ bin;
-    assign bout = = (~a & b) | ((~a | b) & bin);
+    reg a;
+    reg b;
+    reg bin;
+    wire D;
+    wire bout;
+
+    full_subtractor full_subtractor_uut(a, b, bin, D, bout);
+
+    initial begin
+        $dumpfile("full_subtractor_tb.vcd");
+        $dumpvars(0, full_subtractor_tb);
+
+        a = 0;
+        b = 0;
+        bin = 0;
+        #20;
+
+        a = 0;
+        b = 0;
+        bin = 1;
+        #20;
+
+        a = 0;
+        b = 1;
+        bin = 1;
+        #20;
+
+        a = 1;
+        b = 0;
+        bin = 0;
+        #20;
+
+        a = 1;
+        b = 0;
+        bin = 1;
+        #20;
+
+        a = 1;
+        b = 1;
+        bin = 0;
+        #20;
+
+        a = 1;
+        b = 1;
+        bin = 1;
+        #20;
+
+        $display("Test complete");
+        $finish;
+    end
 
 endmodule
