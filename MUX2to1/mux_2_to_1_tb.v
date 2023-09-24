@@ -1,21 +1,21 @@
 `timescale 1ns/1ps
 `include "mux_2_to_1.v"
 
-module mux_2_to_1_tb ();
+module mux_2_to_1_tb();
 
     reg A;
     reg B;
     reg SEL;
-    wire OUTPUT;
-    wire OUTPUT_BAR;
+    wire OUT;
+    wire OUT_BAR;
 
     // Instantiate the mux_2_to_1 module and connect signals
     mux_2_to_1 mux_2_to_1_uut (
-        .A(A),
-        .B(B),
-        .SEL(SEL),
-        .OUTPUT(OUTPUT),
-        .OUTPUT_BAR(OUTPUT_BAR)
+        A,
+        B,
+        SEL,
+        OUT,
+        OUT_BAR
     );
 
     initial begin
@@ -46,6 +46,7 @@ module mux_2_to_1_tb ();
         B = 0;
         #10;
 
+        $display("Test completed");
         $finish;
     end
 endmodule
