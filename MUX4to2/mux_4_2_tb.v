@@ -5,12 +5,12 @@ module mux_4_2_tb();
 
     reg [3:0] data_in;
     reg [1:0] sel;
-    wire y;
+    wire out;
 
     mux_4_2 uut (
         .data_in(data_in),
         .sel(sel),
-        .y(y)
+        .out(out)
     );
 
     initial begin
